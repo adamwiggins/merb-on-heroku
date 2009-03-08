@@ -8,7 +8,7 @@ include FileUtils
 
 # Load the basic runtime dependencies; this will include 
 # any plugins and therefore plugin rake tasks.
-init_env = ENV['MERB_ENV'] || 'rake'
+init_env = ENV['MERB_ENV'] || ENV['RACK_ENV']
 Merb.load_dependencies(:environment => init_env)
      
 # Get Merb plugins and dependencies

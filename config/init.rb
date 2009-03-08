@@ -1,5 +1,13 @@
 # Go to http://wiki.merbivore.com/pages/init-rb
- 
+
+# Ruby Inline wants a writeable home dir.  Set it up under tmp.
+home = "#{Merb.root}/tmp/home"
+begin
+	Dir.mkdir(home)
+rescue Errno::EEXIST
+end
+ENV['HOME'] = home
+
 require 'config/dependencies.rb'
  
 use_orm :datamapper
